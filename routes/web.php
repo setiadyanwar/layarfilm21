@@ -14,13 +14,12 @@ Route::get('user',function(){
     return "Hai User";
 })->middleware('role:user');
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::redirect('/', '/login', 301);
+
+Route::prefix('prototype')->group(function () {
+    route::get('/login',function(){
+        return Inertia::render('Prototype/Login');
+    });
 });
 
 Route::get('/dashboard', function () {

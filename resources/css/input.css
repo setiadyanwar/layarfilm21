@@ -1,0 +1,11 @@
+.input-error{
+    @apply ring Oring-red-600;
+}
+
+.input-primary{
+    @apply focus:bg-primary bg-gray-200 focus:outline-primary focus:outline-none;
+}
+
+.input-primary-outline {
+    @apply bg-[#fff] focus:bg-[#fff] border-primary focus:border-primary ;
+}
