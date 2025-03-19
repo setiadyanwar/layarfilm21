@@ -1,3 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "input.css";
+
+.flex::before,
+.flex::after {
+    display: none !important;
+}
+
+/* --- ANIMASI SCROLL --- */
+@keyframes scroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20%);
+    }
+  }
+  
+  @keyframes scrollReverse {
+    0% {
+      transform: translateY(-20%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .scroll-container {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .scroll-content {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 8s linear infinite;
+  }
+
+  .inner {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* jika mau rata tengah */
+    justify-content: center;
+  }
+  
+  .reverse .scroll-content {
+    animation: scrollReverse 10s linear infinite;
+  }
+  
+  /* --- MASK IMAGE PADA WRAPPER --- */
+  .wrapper {
+    position: relative;
+    /* mask-image (untuk browser modern) */
+    mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+  
+    /* -webkit-mask-image (untuk Safari) */
+    -webkit-mask-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+  }
+  
