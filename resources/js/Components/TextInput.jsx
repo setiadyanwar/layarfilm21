@@ -18,6 +18,7 @@ Input.propTypes = {
     required: PropTypes.bool,
     autocomplete: PropTypes.string,
     isFocused: PropTypes.bool,
+    className: PropTypes.string,
     variant: PropTypes.oneOf(["primary", "error", "primary-outline"]),
     isError: PropTypes.bool,
     handleChanges: PropTypes.func,
@@ -53,9 +54,7 @@ export default forwardRef(function TextInput(
         <input
             {...props}
             type={type}
-            className={
-                'rounded-2xl bg-gray-100 py-[13px] px-7 ${isErorr && "input-error" } input-${variant} ${className} w-full focus:outline-none focus:outline-primary focus:border-transparent'
-            }
+            className={'rounded-2xl bg-gray-100 py-[13px] px-7 ${isErorr && "input-error" } input-${variant} ${className} w-full focus:outline-none focus:outline-primary focus:border-transparent'}
             ref={localRef}
             required={required}
             defaultValue={defaultValue}
